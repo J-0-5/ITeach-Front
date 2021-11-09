@@ -1,0 +1,35 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://i.imgur.com/vFVsXdu.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="email" [formControl]="emailCtrl" id="email" class="fadeIn second focus" name="email"
+        placeholder="E-mail" required>
+
+      <p class="form-text font-weight-light" *ngIf="emailCtrl.hasError('required') && emailCtrl.dirty">No olvides
+        escribir tu email.
+      </p>
+      <p class="form-text font-weight-light" *ngIf="emailCtrl.hasError('email') && emailCtrl.dirty">Debes usar un email
+        valido.
+      </p>
+
+      <input type="password" [formControl]="passwordCtrl" id="password" class="fadeIn third focus" name="password"
+        placeholder="Contraseña" required>
+
+      <p class="form-text font-weight-light" *ngIf="passwordCtrl.hasError('required') && passwordCtrl.dirty">No olvides
+        escribir tu
+        contraseña.
+      </p>
+
+      <input [disabled]="emailCtrl.invalid && passwordCtrl.invalid" (click)="LogIn($event)" type="submit"
+        class="fadeIn fourth" value="Inicia sesión">
+    </form>
+
+  </div>
+</div>
