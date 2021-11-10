@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { debounceTime } from 'rxjs/operators';
 
 //Services
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',

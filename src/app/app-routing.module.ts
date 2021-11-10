@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { ScheduleListComponent } from './schedule/schedule-list/schedule-list.component';
+import { LoginComponent } from './views/login/login.component';
+import { ScheduleListComponent } from './views/schedule/schedule-list/schedule-list.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/' },

@@ -10,21 +10,23 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './login/login.component';
-import { CreateScheduleComponent } from './schedule/create-schedule/create-schedule.component';
-import { ScheduleListComponent } from './schedule/schedule-list/schedule-list.component';
+import { LoginComponent } from './views/login/login.component';
+import { CreateScheduleComponent } from './views/schedule/create-schedule/create-schedule.component';
+import { ScheduleListComponent } from './views/schedule/schedule-list/schedule-list.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
 //services
 import { AuthService } from './services/auth.service';
+import { SubjectsComponent } from './views/subjects/subjects.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CreateScheduleComponent,
-    ScheduleListComponent
+    ScheduleListComponent,
+    SubjectsComponent
   ],
   imports: [
     BrowserModule,
