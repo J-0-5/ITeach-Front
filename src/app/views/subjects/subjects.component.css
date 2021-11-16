@@ -31,12 +31,12 @@ p {
   max-height: 35px;
   padding: 0 1rem;
   margin: 1rem;
-  text-align: center;
 }
 
 .btn-delete{
   background-color: #c0392b;
   color: #fff;
+
 }
 
 mat-icon{
