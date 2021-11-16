@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 //services
 import { AuthService } from './services/auth.service';
 import { SubjectsComponent } from './views/subjects/subjects.component';
+import { ProfileComponent } from './views/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SubjectsComponent } from './views/subjects/subjects.component';
     LoginComponent,
     CreateScheduleComponent,
     ScheduleListComponent,
-    SubjectsComponent
+    SubjectsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
