@@ -1,1 +1,39 @@
-<p>subjects works!</p>
+<h1 class="text-dark text-center font-weight-bold mb-3">Materias</h1>
+<div class="my-3">
+  <div class="input-group ">
+    <input type="text" class="form-control" placeholder="Nombre de la materia" [formControl]="nameCtrl">
+
+    <div class="input-group-append">
+      <button class="btn" type="button" (click)="AddSubject($event)">Añadir</button>
+    </div>
+  </div>
+  <p class="form-text font-weight-light" *ngIf="nameCtrl.hasError('required') && nameCtrl.dirty">Escribe el nombre de la
+    materia</p>
+</div>
+
+<table class="table table-borderless  table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha de creación</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of SubjectsList; index as i;">
+      <td>
+        <input class="form-control" type="text" name="name" id="name" value="{{item.name}}">
+      </td>
+      <td>{{item.created_at}}</td>
+      <td><button class="btn btn-lg btn-block">
+          <mat-icon>save</mat-icon>
+        </button>
+      </td>
+      <td><button class="btn btn-lg btn-block btn-delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
