@@ -24,18 +24,18 @@ export class SubjectsComponent implements OnInit {
     this.getList();
   }
 
-  getList(){
+  getList() {
     this.subjects.getSubjects()
-    .subscribe(response => {
-      let data = JSON.parse(JSON.stringify(response));
-      if (data.status) {
-        this.SubjectsList = data.data;
-        console.log(this.SubjectsList);
-      }
-    });
+      .subscribe(response => {
+        let data = JSON.parse(JSON.stringify(response));
+        if (data.status) {
+          this.SubjectsList = data.data;
+          console.log(this.SubjectsList);
+        }
+      });
   }
 
-  AddSubject(event: Event) {
+  addSubject(event: Event) {
     event.preventDefault();
     this.subjects.createSubjects(this.nameCtrl.value)
       .subscribe(response => {
@@ -43,6 +43,33 @@ export class SubjectsComponent implements OnInit {
         if (data.status) {
           console.log(data);
           this.nameCtrl.reset();
+          this.getList();
+        }
+      });
+  }
+
+  editSubject(event: Event, id: Number) {
+    event.preventDefault();
+    let element = document.getElementById('name'+id);
+    console.log(element);
+    return
+    this.subjects.updateSubjects(id, this.nameCtrl.value)
+      .subscribe(response => {
+        let data = JSON.parse(JSON.stringify(response));
+        console.log('data',data);
+        if (data.status) {
+          console.log('updated',data);
+        }
+      });
+  }
+
+  destrtoySubject(event: Event, id: Number) {
+    event.preventDefault();
+    this.subjects.deleteSubjects(id)
+      .subscribe(response => {
+        let data = JSON.parse(JSON.stringify(response));
+        if (data.status) {
+          console.log(data);
           this.getList();
         }
       });

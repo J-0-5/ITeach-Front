@@ -27,10 +27,6 @@ p {
 .btn{
   background-color: #04448c;
   color: #fff;
-  max-width: 20px;
-  max-height: 35px;
-  padding: 0 1rem;
-  margin: 1rem;
 }
 
 .btn-delete{

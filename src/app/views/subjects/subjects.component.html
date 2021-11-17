@@ -4,7 +4,7 @@
     <input type="text" class="form-control" placeholder="Nombre de la materia" [formControl]="nameCtrl">
 
     <div class="input-group-append">
-      <button class="btn" type="button" (click)="AddSubject($event)">Añadir</button>
+      <button class="btn" type="button" (click)="addSubject($event)">Añadir</button>
     </div>
   </div>
   <p class="form-text font-weight-light" *ngIf="nameCtrl.hasError('required') && nameCtrl.dirty">Escribe el nombre de la
@@ -23,15 +23,15 @@
   <tbody>
     <tr *ngFor="let item of SubjectsList; index as i;">
       <td>
-        <input class="form-control" type="text" name="name" id="name" value="{{item.name}}">
+        <input class="form-control" type="text" name="{{'name'+item.id}}" id="{{'name'+item.id}}" value="{{item.name}}">
       </td>
       <td>{{item.created_at}}</td>
       <td><button class="btn btn-lg btn-block">
-          <mat-icon>save</mat-icon>
+          <mat-icon (click)="editSubject($event, item.id)">save</mat-icon>
         </button>
       </td>
       <td><button class="btn btn-lg btn-block btn-delete">
-          <mat-icon>delete</mat-icon>
+          <mat-icon (click)="destrtoySubject($event, item.id)">delete</mat-icon>
         </button>
       </td>
     </tr>
