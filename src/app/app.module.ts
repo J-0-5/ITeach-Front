@@ -9,6 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { DragDropModule} from '@angular/cdk/drag-drop';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { SubjectsComponent } from './views/subjects/subjects.component';
 import { ProfileComponent } from './views/profile/profile.component';
+import { MySubjectsComponent } from './views/my-subjects/my-subjects.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { ProfileComponent } from './views/profile/profile.component';
     CreateScheduleComponent,
     ScheduleListComponent,
     SubjectsComponent,
-    ProfileComponent
+    ProfileComponent,
+    MySubjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { ProfileComponent } from './views/profile/profile.component';
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
+    DragDropModule,
     HttpClientModule,
   ],
   providers: [AuthService],

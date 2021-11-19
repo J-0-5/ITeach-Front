@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -16,10 +16,10 @@ export class SubjectsService {
     'Authorization': `Bearer ${localStorage.getItem('userToken')}`,
   })
 
-  getSubjects() {
+  getSubjects(unassigned: Number = NaN, teacher_id: Number = NaN) {
     const url_api = `${this.url}subjects`;
     return this.http
-      .get(url_api, { headers: this.headers })
+      .get(url_api, { headers: this.headers, params: new HttpParams().set('unassigned', unassigned.toString()).set('teacher_id', teacher_id.toString()) })
       .pipe(map(data => data));
   }
 
