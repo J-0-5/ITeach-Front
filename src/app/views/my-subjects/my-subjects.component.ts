@@ -30,9 +30,10 @@ export class MySubjectsComponent implements OnInit {
         event.previousIndex,
         event.currentIndex,
       );
+
       if (event.container.id == 'cdk-drop-list-0') {
         console.log('delete', JSON.parse(JSON.stringify(event.container.data[event.currentIndex])).name);
-        let id = JSON.parse(JSON.stringify(event.container.data[event.currentIndex])).id;
+        let id = JSON.parse(JSON.stringify(event.container.data[event.currentIndex])).subjects_id;
         this.remove(id);
       }
       if (event.container.id == 'cdk-drop-list-1') {
@@ -64,7 +65,7 @@ export class MySubjectsComponent implements OnInit {
       .subscribe(response => {
         let data = JSON.parse(JSON.stringify(response));
         if (data.status) {
-          this.getList;
+          this.getList();
         }
       });
   }
@@ -74,7 +75,7 @@ export class MySubjectsComponent implements OnInit {
       .subscribe(response => {
         let data = JSON.parse(JSON.stringify(response));
         if (data.status) {
-          this.getList;
+          this.getList();
         }
       });
   }
