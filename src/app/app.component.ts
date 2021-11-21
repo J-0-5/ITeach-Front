@@ -19,21 +19,28 @@ export class AppComponent implements OnInit {
 
   constructor(
     private observer: BreakpointObserver,
-    private route: ActivatedRoute,
     private router: Router
   ) {
-    this.token = ''
+    this.token = JSON.stringify(localStorage.getItem('userToken'))
   }
-
 
   ngOnInit() {
     console.log(this.token)
   }
 
-  ngAfterViewInit() {
-    this.token = JSON.stringify(localStorage.getItem('userToken'));
-    console.log(this.token)
+  logOut(event: Event) {
+    event.preventDefault();
+    localStorage.clear();
+    this.router.navigate(['login']);
+    this.sidenav.mode = 'over';
+    this.sidenav.close();
+  }
 
+  ngAfterViewInit() {
+    this.check();
+  }
+
+  check() {
     this.observer
       .observe(['(max-width: 800px)'])
       .pipe(delay(1))

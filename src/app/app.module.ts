@@ -10,6 +10,9 @@ import { MatTableModule } from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DragDropModule} from '@angular/cdk/drag-drop';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -49,6 +52,9 @@ import { MySubjectsComponent } from './views/my-subjects/my-subjects.component';
     MatPaginatorModule,
     MatFormFieldModule,
     DragDropModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
     HttpClientModule,
   ],
   providers: [AuthService],

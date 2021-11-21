@@ -1,0 +1,23 @@
+label {
+  font-size: large;
+  font-weight: 500;
+  color: #383838;
+}
+
+p {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  display:inline-block;
+  margin: 10px 8px 5px 8px;
+  color: #b33939;
+}
+
+.btn-box{
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  margin: 0 auto !important;
+}
