@@ -12,6 +12,7 @@ import { SubjectsService } from 'src/app/services/subjects.service';
 })
 export class SubjectsComponent implements OnInit {
   SubjectsList!: any[];
+  page: number = 0;
 
   nameCtrl = new FormControl('', [Validators.required]);
   constructor(private subjects: SubjectsService) {
@@ -22,6 +23,11 @@ export class SubjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getList();
+  }
+
+  setPage(param: number) {
+    if (param < 0 && this.page === 0) { return; }
+    this.page += param;
   }
 
   getList() {
@@ -41,25 +47,21 @@ export class SubjectsComponent implements OnInit {
       .subscribe(response => {
         let data = JSON.parse(JSON.stringify(response));
         if (data.status) {
-          console.log(data);
           this.nameCtrl.reset();
           this.getList();
         }
       });
   }
 
-  editSubject(event: Event, id: Number) {
+  editSubject(event: Event, item: any) {
     event.preventDefault();
-    let element = document.getElementById('name'+id);
-    console.log(element);
-    return
-    this.subjects.updateSubjects(id, this.nameCtrl.value)
+    this.subjects.updateSubjects(item.id, item.name)
       .subscribe(response => {
         let data = JSON.parse(JSON.stringify(response));
-        console.log('data',data);
         if (data.status) {
-          console.log('updated',data);
+          this.getList();
         }
+        alert(data.message);
       });
   }
 
@@ -69,7 +71,6 @@ export class SubjectsComponent implements OnInit {
       .subscribe(response => {
         let data = JSON.parse(JSON.stringify(response));
         if (data.status) {
-          console.log(data);
           this.getList();
         }
       });

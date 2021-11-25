@@ -49,3 +49,9 @@ td {
   color: #000000;
   font-size: large;
 }
+
+.page-link {
+  font-size: large;
+  color: #000;
+  cursor: pointer;
+}

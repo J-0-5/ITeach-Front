@@ -1,0 +1,31 @@
+th,
+td {
+  font-size: large;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+
+mat-icon {
+  color: #b33939;
+  cursor: pointer;
+}
+
+.add {
+  font-size: large;
+  color: #fff;
+  background-color: #04448c;
+  margin: 15px 0;
+  border-radius: 25px;
+}
+
+select {
+  margin: 15px 0;
+  border-radius: 25px;
+}
+
+.page-link {
+  font-size: large;
+  color: #000;
+  cursor: pointer;
+}

@@ -1,0 +1,14 @@
+h1 {
+  text-align: center;
+  color: #000000de;
+}
+
+.container {
+  min-width: 600px;
+}
+
+mat-card-title {
+  font-size: large;
+  word-break: break-all;
+  padding-right: 3px;
+}

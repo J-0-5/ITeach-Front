@@ -5,6 +5,7 @@ import { ScheduleListComponent } from './views/schedule/schedule-list/schedule-l
 import { CreateScheduleComponent } from './views/schedule/create-schedule/create-schedule.component';
 import { SubjectsComponent } from './views/subjects/subjects.component';
 import { MySubjectsComponent } from './views/my-subjects/my-subjects.component';
+import { TutorshipComponent } from './views/tutorship/tutorship.component';
 import { ProfileComponent } from './views/profile/profile.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'schedule-create', component: CreateScheduleComponent },
   { path: 'subjects', component: SubjectsComponent },
   { path: 'mySubjects', component: MySubjectsComponent },
+  { path: 'tutorship', component: TutorshipComponent },
   { path: 'profile', component: ProfileComponent },
 ];
 

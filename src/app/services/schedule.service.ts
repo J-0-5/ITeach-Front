@@ -17,6 +17,13 @@ export class ScheduleService {
     'Authorization': `Bearer ${localStorage.getItem('userToken')}`,
   })
 
+  getSchedules(teacher_id: Number, day: Number = NaN) {
+    const url_api = `${this.url}schedule`;
+    return this.http
+      .get(url_api, { headers: this.headers, params: new HttpParams().set('teacher_id', teacher_id.toString()).set('day', day.toString()) })
+      .pipe(map(data => data));
+  }
+
   createSchedule(teacher_id: Number, day: Number, campus: Number, start_hour: Time, final_hour: Time) {
     const url_api = `${this.url}schedule/store`;
     return this.http

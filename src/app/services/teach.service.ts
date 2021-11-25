@@ -16,10 +16,10 @@ export class TeachService {
     'Authorization': `Bearer ${localStorage.getItem('userToken')}`,
   })
 
-  getTeach(teacher_id: Number) {
+  getTeach(teacher_id: Number, subjects_id: Number = NaN) {
     const url_api = `${this.url}teach/subjects`;
     return this.http
-      .get(url_api, { headers: this.headers, params: new HttpParams().set('id', teacher_id.toString()) })
+      .get(url_api, { headers: this.headers, params: new HttpParams().set('teacher_id', teacher_id.toString()).set('subjects_id', subjects_id.toString()) })
       .pipe(map(data => data));
   }
 

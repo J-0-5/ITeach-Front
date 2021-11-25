@@ -21,13 +21,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of SubjectsList; index as i;">
+    <tr *ngFor="let item of SubjectsList | filter:page;">
       <td>
-        <input class="form-control" type="text" name="{{'name'+item.id}}" id="{{'name'+item.id}}" value="{{item.name}}">
+        <input class="form-control" type="text" name="{{'name'+item.id}}" id="{{'name'+item.id}}" [(ngModel)]="item.name">
       </td>
       <td>{{item.created_at}}</td>
       <td><button class="btn btn-lg btn-block">
-          <mat-icon (click)="editSubject($event, item.id)">save</mat-icon>
+          <mat-icon (click)="editSubject($event, item)">save</mat-icon>
         </button>
       </td>
       <td><button class="btn btn-lg btn-block btn-delete">
@@ -35,5 +35,29 @@
         </button>
       </td>
     </tr>
+    <tr *ngIf="(SubjectsList | filter:page).length === 0">
+      <td colspan="5">No hay mas horarios para mostrar</td>
+    </tr>
   </tbody>
 </table>
+<!-- <button mat-raised-button (click)="openDialog()">Pick one</button> -->
+<div class="d-flex justify-content-center">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <button class="page-link" (click)="setPage(-5)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </button>
+      </li>
+      <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+      <li class="page-item">
+        <button class="page-link next" (click)="setPage(5)" aria-label="Next"
+          [disabled]="(SubjectsList | filter:page).length === 0">
+          <span aria-hidden="true">&raquo;</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>

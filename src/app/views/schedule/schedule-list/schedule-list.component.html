@@ -1,31 +1,56 @@
 <div class="row">
   <h1 class="text-dark text-center font-weight-bold mb-3">Materias</h1>
-  <button routerLink="/schedule-create">Añadir</button>
+  <button routerLink="/schedule-create" class="btn add">Añadir horario</button>
+  <select class="form-control" name="day" id="day" [formControl]="dayCtrl">
+    <option value="" disabled selected>Seleccione un día</option>
+    <option *ngFor="let item of days; index as i;" value="{{item.id}}">{{item.name}}</option>
+  </select>
 </div>
 
-<!-- <table class="table table-borderless  table-hover">
+<table class="table table-borderless  table-hover">
   <thead>
     <tr>
-      <th>Nombre</th>
-      <th>Fecha de creación</th>
-      <th></th>
+      <th>Día</th>
+      <th>Hora inicial</th>
+      <th>Hora final</th>
+      <th>campus</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of SubjectsList; index as i;">
+    <tr *ngFor="let item of scheduleList | filter:page;">
+      <td>{{item.day.name}}</td>
+      <td>{{item.start_hour}}</td>
+      <td>{{item.final_hour}}</td>
+      <td>{{item.campus.name}}</td>
       <td>
-        <input class="form-control" type="text" name="{{'name'+item.id}}" id="{{'name'+item.id}}" value="{{item.name}}">
-      </td>
-      <td>{{item.created_at}}</td>
-      <td><button class="btn btn-lg btn-block">
-          <mat-icon (click)="editSubject($event, item.id)">save</mat-icon>
-        </button>
-      </td>
-      <td><button class="btn btn-lg btn-block btn-delete">
-          <mat-icon (click)="destrtoySubject($event, item.id)">delete</mat-icon>
-        </button>
+        <!-- <button class="btn btn-lg btn-block"> -->
+        <mat-icon>delete</mat-icon>
+        <!-- </button> -->
       </td>
     </tr>
+    <tr *ngIf="(scheduleList | filter:page).length === 0">
+      <td colspan="5">No hay mas horarios para mostrar</td>
+    </tr>
   </tbody>
-</table> -->
+</table>
+<div class="d-flex justify-content-center">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <button class="page-link" (click)="setPage(-5)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </button>
+      </li>
+      <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+      <li class="page-item">
+        <button class="page-link next" (click)="setPage(5)" aria-label="Next"
+          [disabled]="(scheduleList | filter:page).length === 0">
+          <span aria-hidden="true">&raquo;</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>

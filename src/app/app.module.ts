@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,6 +13,8 @@ import { DragDropModule} from '@angular/cdk/drag-drop';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +29,8 @@ import { AuthService } from './services/auth.service';
 import { SubjectsComponent } from './views/subjects/subjects.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { MySubjectsComponent } from './views/my-subjects/my-subjects.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { TutorshipComponent } from './views/tutorship/tutorship.component';
 
 @NgModule({
   declarations: [
@@ -36,13 +40,16 @@ import { MySubjectsComponent } from './views/my-subjects/my-subjects.component';
     ScheduleListComponent,
     SubjectsComponent,
     ProfileComponent,
-    MySubjectsComponent
+    MySubjectsComponent,
+    FilterPipe,
+    TutorshipComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
@@ -55,6 +62,8 @@ import { MySubjectsComponent } from './views/my-subjects/my-subjects.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatCardModule,
+    MatGridListModule,
     HttpClientModule,
   ],
   providers: [AuthService],

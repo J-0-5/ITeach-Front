@@ -1,0 +1,38 @@
+<h1>Solicitar tutoría</h1>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-5">
+      <select class="form-control" name="subject" id="subject" [formControl]="subjectCtrl">
+        <option value="" disabled selected>Materias</option>
+        <option *ngFor="let item of SubjectsList; index as i;" value="{{item.id}}">{{item.name}}</option>
+      </select>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-5">
+      <select class="form-control" name="day" id="day" [formControl]="dayCtrl">
+        <option value="" disabled selected>Días</option>
+        <option *ngFor="let item of days; index as i;" value="{{item.id}}">{{item.name}}</option>
+      </select>
+    </div>
+  </div>
+
+  <mat-grid-list cols="2" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let teach of TeachList">
+      <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{teach.first_name}} {{teach.first_last_name}}</mat-card-title>
+          <mat-card-subtitle>{{teach.email}}</mat-card-subtitle>
+          <img mat-card-sm-image class="rounded" src={{teach.photo_url}}>
+        </mat-card-title-group>
+        <!-- <mat-card-content>
+          {{longText}}
+        </mat-card-content> -->
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>2</mat-grid-tile>
+    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>4</mat-grid-tile>
+  </mat-grid-list>
+
+
+</div>
