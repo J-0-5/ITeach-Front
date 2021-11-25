@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   second_last_name!: String;
   photo_url!: String;
   charge!: String;
+  email!: String;
 
   constructor(private profile: ProfileService) { }
 
@@ -30,6 +31,7 @@ export class ProfileComponent implements OnInit {
           this.second_last_name = data.data.second_last_name;
           this.photo_url = data.data.photo_url;
           this.charge = data.data.role.name;
+          this.email = data.data.email;
           console.log(data.data);
         }
       });
