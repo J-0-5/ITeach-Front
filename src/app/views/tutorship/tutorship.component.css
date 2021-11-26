@@ -10,5 +10,10 @@ h1 {
 mat-card-title {
   font-size: large;
   word-break: break-all;
-  padding-right: 3px;
+  padding-right: 5px;
+}
+
+mat-card-subtitle {
+  word-break: break-all;
+  padding-right: 5px;
 }

@@ -15,6 +15,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,6 +32,7 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { MySubjectsComponent } from './views/my-subjects/my-subjects.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { TutorshipComponent } from './views/tutorship/tutorship.component';
+// import { DialogTutorshipComponent } from './views/dialog-tutorship/dialog-tutorship.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { TutorshipComponent } from './views/tutorship/tutorship.component';
     ProfileComponent,
     MySubjectsComponent,
     FilterPipe,
-    TutorshipComponent
+    TutorshipComponent,
+    // DialogTutorshipComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +67,7 @@ import { TutorshipComponent } from './views/tutorship/tutorship.component';
     MatSelectModule,
     MatCardModule,
     MatGridListModule,
+    MatDialogModule,
     HttpClientModule,
   ],
   providers: [AuthService],
