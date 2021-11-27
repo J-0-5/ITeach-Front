@@ -52,7 +52,7 @@ export class MySubjectsComponent implements OnInit {
           this.SubjectsList = data.data;
         }
       });
-    this.teach.getTeach(0)
+    this.teach.getSubjects(0)
       .subscribe(response => {
         let data = JSON.parse(JSON.stringify(response));
         if (data.status) {

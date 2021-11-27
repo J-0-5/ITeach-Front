@@ -3,6 +3,15 @@ h1 {
   color: #000000de;
 }
 
+p {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+  margin: 10px 8px 5px 8px;
+  color: #b33939;
+}
+
 .container {
   min-width: 600px;
 }
@@ -16,4 +25,50 @@ mat-card-title {
 mat-card-subtitle {
   word-break: break-all;
   padding-right: 5px;
+}
+
+.btnBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+textarea {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+input[type="button"]:hover {
+  background-color: #2d8bb9;
+}
+
+input[type="button"]:active {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+input[type="button"] {
+  background-color: #04448c;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }

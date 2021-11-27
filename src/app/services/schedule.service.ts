@@ -20,7 +20,7 @@ export class ScheduleService {
   getSchedules(teacher_id: Number, day: Number = NaN) {
     const url_api = `${this.url}schedule`;
     return this.http
-      .get(url_api, { headers: this.headers, params: new HttpParams().set('teacher_id', teacher_id.toString()).set('day', day.toString()) })
+      .get(url_api, { headers: this.headers, params: new HttpParams().set('teacher_id', teacher_id.toString()).set('day', day?.toString() ?? 0) })
       .pipe(map(data => data));
   }
 

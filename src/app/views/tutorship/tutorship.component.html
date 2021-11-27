@@ -3,55 +3,50 @@
   <div class="row mb-3">
     <div class="col-5">
       <select class="form-control" name="subject" id="subject" [formControl]="subjectCtrl">
-        <option value="" disabled selected>Materias</option>
+        <option value="" [disabled]="subjectCtrl.dirty" selected>Materias</option>
         <option *ngFor="let item of SubjectsList; index as i;" value="{{item.id}}">{{item.name}}</option>
       </select>
     </div>
     <div class="col-1"></div>
     <div class="col-5">
-      <select class="form-control" name="day" id="day" [formControl]="dayCtrl">
-        <option value="" disabled selected>Días</option>
-        <option *ngFor="let item of days; index as i;" value="{{item.id}}">{{item.name}}</option>
+      <p *ngIf="subjectCtrl.dirty && !TeachList">No hay profesores disponibles para esta materia</p>
+      <select class="form-control" name="teacher" id="teacher" [formControl]="teacherCtrl" *ngIf="subjectCtrl.dirty && TeachList">
+        <option value="" disabled selected>Profesor</option>
+        <option *ngFor="let item of TeachList; index as i;" value="{{item.teacher_id}}">{{item.first_name}}
+          {{item.first_last_name}}</option>
       </select>
     </div>
   </div>
 
-  <mat-grid-list cols="2" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let teach of TeachList">
-      <mat-card class="example-card">
-        <mat-card-title-group>
-          <mat-card-title>{{teach.first_name}} {{teach.first_last_name}}</mat-card-title>
-          <mat-card-subtitle>{{teach.email}}</mat-card-subtitle>
-          <img mat-card-sm-image class="rounded" src={{teach.photo_url}}>
-        </mat-card-title-group>
-        <!-- <mat-card-content>
-          {{longText}}
-        </mat-card-content> -->
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-
-</div>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria- labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-danger" id="exampleModalLabel">Hey
-          Bootstrap 5!!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-danger">
-        Therichpost.com
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-bs- dismiss="modal">Close</button>
-      </div>
+  <div class="row mb-3">
+    <div class="col-5" *ngIf="teacher">
+      <input type="date" min="{{min_date}}" class="form-control" [formControl]="dayCtrl">
+    </div>
+    <div class="col-1"></div>
+    <div class="col-5">
+      <p *ngIf="dayCtrl.dirty && !AvailableHours">No hay horarios para este día</p>
+      <select class="form-control" name="schedule" id="schedule" [formControl]="scheduleCtrl" *ngIf="dayCtrl.dirty && AvailableHours">
+        <option value="" disabled selected>Horario</option>
+        <option *ngFor="let item of AvailableHours; index as i;" value="{{item.id}}">{{item.start_hour}} -
+          {{item.final_hour}}</option>
+      </select>
     </div>
   </div>
+
+  <mat-card class="example-card" *ngIf="scheduleCtrl.dirty && teacher">
+    <mat-card-title-group>
+      <mat-card-title>{{teacher.first_name}} {{teacher.second_name}} {{teacher.first_last_name}}
+        {{teacher.second_last_name}}</mat-card-title>
+      <mat-card-subtitle>{{teacher.email}}</mat-card-subtitle>
+      <img mat-card-sm-image class="rounded" src={{teacher.photo_url}}>
+    </mat-card-title-group>
+  </mat-card>
+
+  <div class="btnBox" *ngIf="scheduleCtrl.dirty && AvailableHours">
+    <textarea class="form-control" name="observation" id="observation" cols="30" rows="5"
+      [formControl]="observationCtrl" placeholder="Observación"></textarea>
+
+    <input type="button" value="Solicitar" (click)="requestTutoring($event)">
+  </div>
+
 </div>
