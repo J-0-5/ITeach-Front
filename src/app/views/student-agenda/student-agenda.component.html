@@ -1,1 +1,51 @@
-<p>student-agenda works!</p>
+<h1 class="text-dark text-center font-weight-bold mb-3">Agenda</h1>
+
+<table class="table table-borderless  table-hover">
+  <thead>
+    <tr>
+      <th>Profesor</th>
+      <th>Materia</th>
+      <th>Fecha</th>
+      <th>Hora inicial</th>
+      <th>Hora final</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of tutorshipsList | filter:page;">
+
+      <td>{{item.teacher.first_name}} {{item.teacher.first_last_name}}</td>
+      <td>{{item.subject.name}}</td>
+      <td>{{item.date}}</td>
+      <td>{{item.schedule.start_hour}}</td>
+      <td>{{item.schedule.final_hour}}</td>
+      <td>
+        <mat-icon class="btn-show" (click)="getList()">visibility</mat-icon>
+      </td>
+    </tr>
+    <tr *ngIf="(tutorshipsList | filter:page).length === 0">
+      <td colspan="5">No hay mas citas para mostrar</td>
+    </tr>
+  </tbody>
+</table>
+<!-- <button mat-raised-button (click)="openDialog()">Pick one</button> -->
+<div class="d-flex justify-content-center">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <button class="page-link" (click)="setPage(-5)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </button>
+      </li>
+      <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+      <li class="page-item">
+        <button class="page-link next" (click)="setPage(5)" aria-label="Next"
+          [disabled]="(tutorshipsList | filter:page).length === 0">
+          <span aria-hidden="true">&raquo;</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>

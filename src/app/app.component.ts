@@ -55,8 +55,8 @@ export class AppComponent implements OnInit {
       .subscribe((res) => {
         if (this.token === 'null') {
           this.router.navigate(['login']);
-          this.sidenav.mode = 'over';
-          this.sidenav.close();
+          // this.sidenav.mode = 'over';
+          // this.sidenav.close();
         }
         else if (res.matches) {
           this.sidenav.mode = 'over';
@@ -68,17 +68,18 @@ export class AppComponent implements OnInit {
       });
   }
 
-  getProfileData(){
+  getProfileData() {
+    if (this.token === 'null') return;
     this.profile.getUserInfo(0)
-    .subscribe(response => {
-      let data = JSON.parse(JSON.stringify(response));
-      if (data.status) {
-        this.full_name = data.data.first_name + " " + data.data.first_last_name;
-        this.photo_url = data.data.photo_url;
-        this.role = data.data.role
-        console.log(data.data);
-      }
-    });
+      .subscribe(response => {
+        let data = JSON.parse(JSON.stringify(response));
+        if (data.status) {
+          this.full_name = data.data.first_name + " " + data.data.first_last_name;
+          this.photo_url = data.data.photo_url;
+          this.role = data.data.role
+          console.log(data.data);
+        }
+      });
   }
 
 }

@@ -6,7 +6,7 @@
     </div> -->
 
 <mat-toolbar class="mat-elevation-z8">
-  <button mat-icon-button *ngIf="sidenav.mode === 'over' && token !== 'null'" (click)="sidenav.toggle()">
+  <button mat-icon-button *ngIf="sidenav?.mode === 'over' && token !== 'null'" (click)="sidenav.toggle()">
     <mat-icon *ngIf="!sidenav.opened">
       menu
     </mat-icon>
@@ -18,7 +18,7 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+  <mat-sidenav *ngIf="token !== 'null'" #sidenav="matSidenav" class="mat-elevation-z8">
 
     <a routerLink="profile">
       <img class="avatar mat-elevation-z8"
@@ -45,7 +45,7 @@
       <span class="option-text">Mis materias</span>
     </button>
 
-    <button mat-button class="menu-button" routerLink="tutorship">
+    <button mat-button class="menu-button" routerLink="tutorship" *ngIf="role.id == 3">
       <mat-icon>book</mat-icon>
       <span class="option-text">Tutorías</span>
     </button>
@@ -58,11 +58,6 @@
     <button mat-button class="menu-button">
       <mat-icon>history</mat-icon>
       <span class="option-text">Historial</span>
-    </button>
-
-    <button mat-button class="menu-button">
-      <mat-icon>info</mat-icon>
-      <span class="option-text">About</span>
     </button>
 
     <mat-divider></mat-divider>
