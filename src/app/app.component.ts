@@ -14,10 +14,10 @@ import { ProfileService } from './services/profile.service';
 export class AppComponent implements OnInit {
   full_name!: String;
   photo_url!: String;
-  role!: String;
-  
+  role!: any;
+
   title = 'iTeach-Front';
-  token: String;
+  token: any;
 
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
@@ -32,14 +32,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.token);
-    this.getProfileData(); 
+    this.getProfileData();
   }
 
   logOut(event: Event) {
     event.preventDefault();
     localStorage.clear();
+    this.token = null;
     this.router.navigate(['login']);
-    this.sidenav.mode = 'over';
+    this.sidenav.mode = 'side';
     this.sidenav.close();
   }
 
@@ -74,7 +75,7 @@ export class AppComponent implements OnInit {
       if (data.status) {
         this.full_name = data.data.first_name + " " + data.data.first_last_name;
         this.photo_url = data.data.photo_url;
-        this.role = data.data.role.name
+        this.role = data.data.role
         console.log(data.data);
       }
     });

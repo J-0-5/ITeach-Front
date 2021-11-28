@@ -33,6 +33,8 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { MySubjectsComponent } from './views/my-subjects/my-subjects.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { TutorshipComponent } from './views/tutorship/tutorship.component';
+import { StudentAgendaComponent } from './views/student-agenda/student-agenda.component';
+import { TeacherAgendaComponent } from './views/teacher-agenda/teacher-agenda.component';
 // import { DialogTutorshipComponent } from './views/dialog-tutorship/dialog-tutorship.component';
 
 @NgModule({
@@ -46,6 +48,8 @@ import { TutorshipComponent } from './views/tutorship/tutorship.component';
     MySubjectsComponent,
     FilterPipe,
     TutorshipComponent,
+    StudentAgendaComponent,
+    TeacherAgendaComponent,
     // DialogTutorshipComponent
   ],
   imports: [

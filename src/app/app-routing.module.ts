@@ -6,6 +6,8 @@ import { CreateScheduleComponent } from './views/schedule/create-schedule/create
 import { SubjectsComponent } from './views/subjects/subjects.component';
 import { MySubjectsComponent } from './views/my-subjects/my-subjects.component';
 import { TutorshipComponent } from './views/tutorship/tutorship.component';
+import { StudentAgendaComponent } from './views/student-agenda/student-agenda.component';
+import { TeacherAgendaComponent } from './views/teacher-agenda/teacher-agenda.component';
 import { ProfileComponent } from './views/profile/profile.component';
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'subjects', component: SubjectsComponent },
   { path: 'mySubjects', component: MySubjectsComponent },
   { path: 'tutorship', component: TutorshipComponent },
+  { path: 'student-agenda', component: StudentAgendaComponent },
+  { path: 'teacher-agenda', component: TeacherAgendaComponent },
   { path: 'profile', component: ProfileComponent },
 ];
 

@@ -3,7 +3,7 @@
   <div class="row mb-3">
     <div class="col-5">
       <select class="form-control" name="subject" id="subject" [formControl]="subjectCtrl">
-        <option value="" [disabled]="subjectCtrl.dirty" selected>Materias</option>
+        <option value="" disabled selected>Materias</option>
         <option *ngFor="let item of SubjectsList; index as i;" value="{{item.id}}">{{item.name}}</option>
       </select>
     </div>
@@ -43,8 +43,8 @@
   </mat-card>
 
   <div class="btnBox" *ngIf="scheduleCtrl.dirty && AvailableHours">
-    <textarea class="form-control" name="observation" id="observation" cols="30" rows="5"
-      [formControl]="observationCtrl" placeholder="Observación"></textarea>
+    <!-- <textarea class="form-control" name="observation" id="observation" cols="30" rows="5"
+      [formControl]="observationCtrl" placeholder="Observación"></textarea> -->
 
     <input type="button" value="Solicitar" (click)="requestTutoring($event)">
   </div>

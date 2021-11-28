@@ -95,11 +95,7 @@ export class TutorshipComponent implements OnInit {
       .subscribe(response => {
         let data = JSON.parse(JSON.stringify(response));
         if (data.status) {
-          this.subjectCtrl.reset();
-          this.teacherCtrl.reset();
-          this.dayCtrl.reset();
-          this.scheduleCtrl.reset();
-          this.observationCtrl.reset();
+          window.location.reload();
         }
         alert(data.message);
       });

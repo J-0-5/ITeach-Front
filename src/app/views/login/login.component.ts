@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { debounceTime } from 'rxjs/operators';
 
 //Services
@@ -17,10 +16,8 @@ export class LoginComponent implements OnInit {
   passwordCtrl = new FormControl('', [Validators.required]);
 
   constructor(
-    private router: Router,
     private auth: AuthService
   ) {
-
     this.emailCtrl.valueChanges
       .pipe(debounceTime(500))
       .subscribe(value => console.log(value))
@@ -40,7 +37,7 @@ export class LoginComponent implements OnInit {
         let data = JSON.parse(JSON.stringify(response));
         if (data.status) {
           this.auth.setToken(data.data);
-          this.router.navigate(['/']);
+          window.location.replace('/');
         }
       });
   }
