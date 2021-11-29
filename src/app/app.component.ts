@@ -45,7 +45,9 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.check();
+    setTimeout(() => {
+      this.check();
+    }, 500);
   }
 
   check() {
@@ -55,8 +57,8 @@ export class AppComponent implements OnInit {
       .subscribe((res) => {
         if (this.token === 'null') {
           this.router.navigate(['login']);
-          // this.sidenav.mode = 'over';
-          // this.sidenav.close();
+          this.sidenav.mode = 'over';
+          this.sidenav.close();
         }
         else if (res.matches) {
           this.sidenav.mode = 'over';

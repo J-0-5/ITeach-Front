@@ -18,11 +18,21 @@ export class TutorshipService {
 
   getTutorshipsList(state: any[]) {
     const url_api = `${this.url}tutorship`;
+
     let params = new HttpParams();
     state.map(item => params.set('state[]', item));
+
     return this.http
       .get(url_api, { headers: this.headers, params })
-      .pipe(map(data => data));;
+      .pipe(map(data => data));
+  }
+
+  getTutorshipDetail(tutorship_id: Number) {
+    const url_api = `${this.url}tutorship/show`;
+
+    return this.http
+      .get(url_api, { headers: this.headers, params: new HttpParams().set('tutorship_id', tutorship_id.toString()) })
+      .pipe(map(data => data));
   }
 
   createTutorship(teacher_id: Number, student_id: Number, subjects_id: Number, schedule_id: Number, date: String, observation: String) {

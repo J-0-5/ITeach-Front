@@ -20,7 +20,7 @@
       <td>{{item.schedule.start_hour}}</td>
       <td>{{item.schedule.final_hour}}</td>
       <td>
-        <mat-icon class="btn-show" (click)="getList()">visibility</mat-icon>
+        <mat-icon class="btn-show" [routerLink]="['/agenda-detail']" [queryParams]="{id: item.id, teacher: false }">visibility</mat-icon>
       </td>
     </tr>
     <tr *ngIf="(tutorshipsList | filter:page).length === 0">

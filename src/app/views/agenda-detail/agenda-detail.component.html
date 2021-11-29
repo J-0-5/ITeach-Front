@@ -1,0 +1,29 @@
+<div class="container bootstrap snippets bootdey">
+  <div class="profile card">
+    <div class="profile-body">
+      <div class="profile-bio">
+        <div class="row">
+          <div class="col-md-5 text-center">
+            <img class="img-thumbnail md-margin-bottom-10" src="{{detail.user.photo_url}}" alt="">
+          </div>
+          <div class="col-md-7">
+            <h2>{{detail.user.full_name}}</h2>
+            <span><strong>Email: </strong>{{detail.user.email}}</span><br>
+            <span><strong>Modulo: </strong>{{detail.subject.name}}</span>
+            <hr>
+            <p>Día de la cita:</p>
+            <p>{{detail.diffForHumans}}, {{detail.schedule.day}} {{detail.date}}</p>
+            <p>Campus:</p>
+            <p>{{detail.schedule.campus}}</p>
+            <p>Horario:</p>
+            <p>{{detail.schedule.start_hour}} - {{detail.schedule.final_hour}}</p>
+          </div>
+        </div>
+        <!-- <div class="row btns">
+          <button class="btn cancel">Cancelar</button>
+          <button class="btn finish" *ngIf="detail.user.role === 3">Finalizar</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

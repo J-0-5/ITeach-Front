@@ -7,10 +7,10 @@
 
 <mat-toolbar class="mat-elevation-z8">
   <button mat-icon-button *ngIf="sidenav?.mode === 'over' && token !== 'null'" (click)="sidenav.toggle()">
-    <mat-icon *ngIf="!sidenav.opened">
+    <mat-icon *ngIf="!sidenav?.opened">
       menu
     </mat-icon>
-    <mat-icon *ngIf="sidenav.opened">
+    <mat-icon *ngIf="sidenav?.opened">
       close
     </mat-icon>
   </button>
@@ -18,7 +18,7 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav *ngIf="token !== 'null'" #sidenav="matSidenav" class="mat-elevation-z8">
+  <mat-sidenav *ngIf="role" #sidenav="matSidenav" class="mat-elevation-z8">
 
     <a routerLink="profile">
       <img class="avatar mat-elevation-z8"

@@ -1,0 +1,93 @@
+.card {
+  -moz-border-radius: 2%;
+  -webkit-border-radius: 2%;
+  border-radius: 2%;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.08);
+}
+
+.profile .profile-body {
+  padding: 20px;
+  background: #f7f7f7;
+}
+
+.profile .profile-bio {
+  background: #fff;
+  position: relative;
+  padding: 15px 10px 5px 15px;
+}
+
+.profile .profile-bio a {
+  left: 50%;
+  bottom: 20px;
+  margin: -62px;
+  text-align: center;
+  position: absolute;
+}
+
+.profile .profile-bio h2 {
+  margin-top: 0;
+  font-weight: 200;
+}
+
+img {
+  border-radius: 15px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #585f69;
+  margin-top: 3px;
+  text-shadow: none;
+  font-weight: normal;
+  font-family: "Open Sans", sans-serif;
+}
+span {
+  font-size: 18px;
+}
+strong {
+  color: #161616;
+  font-weight: 100;
+  font-family: "Open Sans", sans-serif;
+}
+h2 {
+  font-size: 22px;
+  line-height: 33px;
+}
+
+p,
+span,
+li,
+li a {
+  color: #555;
+}
+
+p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+button {
+  margin: 0 15px;
+  width: 150px;
+}
+
+.cancel {
+  background-color: #b33939;
+  color: #fff;
+}
+
+.finish {
+  background-color: #04448c;
+  color: #fff;
+}
