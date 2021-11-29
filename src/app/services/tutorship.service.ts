@@ -20,7 +20,8 @@ export class TutorshipService {
     const url_api = `${this.url}tutorship`;
 
     let params = new HttpParams();
-    state.map(item => params.set('state[]', item));
+
+    state.map((item, index) => { params = params.append(`state[${index}]`, item) });
 
     return this.http
       .get(url_api, { headers: this.headers, params })

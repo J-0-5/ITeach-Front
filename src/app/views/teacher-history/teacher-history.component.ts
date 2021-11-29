@@ -4,11 +4,11 @@ import { Component, OnInit } from '@angular/core';
 import { TutorshipService } from 'src/app/services/tutorship.service';
 
 @Component({
-  selector: 'app-student-agenda',
-  templateUrl: './student-agenda.component.html',
-  styleUrls: ['./student-agenda.component.css']
+  selector: 'app-teacher-history',
+  templateUrl: './teacher-history.component.html',
+  styleUrls: ['./teacher-history.component.css']
 })
-export class StudentAgendaComponent implements OnInit {
+export class TeacherHistoryComponent implements OnInit {
 
   tutorshipsList!: any[];
   page: number = 0;
@@ -25,12 +25,14 @@ export class StudentAgendaComponent implements OnInit {
   }
 
   getList() {
-    this.tutorship.getTutorshipsList([13])
+    this.tutorship.getTutorshipsList([14, 15])
       .subscribe(response => {
         let data = JSON.parse(JSON.stringify(response));
+        console.log(data)
         if (data.status) {
           this.tutorshipsList = data.data;
         }
       })
   }
+
 }

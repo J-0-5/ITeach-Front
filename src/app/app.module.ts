@@ -36,6 +36,8 @@ import { TutorshipComponent } from './views/tutorship/tutorship.component';
 import { StudentAgendaComponent } from './views/student-agenda/student-agenda.component';
 import { TeacherAgendaComponent } from './views/teacher-agenda/teacher-agenda.component';
 import { AgendaDetailComponent } from './views/agenda-detail/agenda-detail.component';
+import { TeacherHistoryComponent } from './views/teacher-history/teacher-history.component';
+import { StudentHistoryComponent } from './views/student-history/student-history.component';
 // import { DialogTutorshipComponent } from './views/dialog-tutorship/dialog-tutorship.component';
 
 @NgModule({
@@ -52,6 +54,8 @@ import { AgendaDetailComponent } from './views/agenda-detail/agenda-detail.compo
     StudentAgendaComponent,
     TeacherAgendaComponent,
     AgendaDetailComponent,
+    TeacherHistoryComponent,
+    StudentHistoryComponent,
     // DialogTutorshipComponent
   ],
   imports: [

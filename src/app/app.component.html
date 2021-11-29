@@ -50,12 +50,12 @@
       <span class="option-text">Tutorías</span>
     </button>
 
-    <button mat-button class="menu-button"  [routerLink]="role.id == 2 ? ['teacher-agenda'] : ['student-agenda']">
+    <button mat-button class="menu-button" [routerLink]="role.id == 2 ? ['teacher-agenda'] : ['student-agenda']">
       <mat-icon>table</mat-icon>
       <span class="option-text">Agenda</span>
     </button>
 
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" [routerLink]="role.id == 2 ? ['teacher-history'] : ['student-history']">
       <mat-icon>history</mat-icon>
       <span class="option-text">Historial</span>
     </button>

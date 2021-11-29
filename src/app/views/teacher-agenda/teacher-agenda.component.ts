@@ -25,7 +25,7 @@ export class TeacherAgendaComponent implements OnInit {
   }
 
   getList() {
-    this.tutorship.getTutorshipsList([1])
+    this.tutorship.getTutorshipsList([13])
       .subscribe(response => {
         let data = JSON.parse(JSON.stringify(response));
         console.log(data)

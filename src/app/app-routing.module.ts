@@ -9,6 +9,8 @@ import { TutorshipComponent } from './views/tutorship/tutorship.component';
 import { StudentAgendaComponent } from './views/student-agenda/student-agenda.component';
 import { TeacherAgendaComponent } from './views/teacher-agenda/teacher-agenda.component';
 import { AgendaDetailComponent } from './views/agenda-detail/agenda-detail.component';
+import { TeacherHistoryComponent } from './views/teacher-history/teacher-history.component';
+import { StudentHistoryComponent } from './views/student-history/student-history.component';
 import { ProfileComponent } from './views/profile/profile.component';
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'student-agenda', component: StudentAgendaComponent },
   { path: 'teacher-agenda', component: TeacherAgendaComponent },
   { path: 'agenda-detail', component: AgendaDetailComponent },
+  { path: 'teacher-history', component: TeacherHistoryComponent },
+  { path: 'student-history', component: StudentHistoryComponent },
   { path: 'profile', component: ProfileComponent },
 ];
 
