@@ -9,7 +9,7 @@ export class TutorshipService {
 
   constructor(private http: HttpClient) { }
 
-  url: String = 'http://127.0.0.1:8000/api/';
+  url: String = 'http://jose.developapp.co/api/';
 
   headers: HttpHeaders = new HttpHeaders({
     "Content-Type": "aplication/json",
