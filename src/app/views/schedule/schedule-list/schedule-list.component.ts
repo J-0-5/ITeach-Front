@@ -35,6 +35,7 @@ export class ScheduleListComponent implements OnInit {
       .subscribe(response => {
         let data = JSON.parse(JSON.stringify(response));
         if (data.status) {
+          console.log(data.data)
           this.scheduleList = data.data;
         }
       });
