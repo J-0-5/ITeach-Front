@@ -30,7 +30,7 @@ export class TutorshipService {
 
   getTutorshipDetail(tutorship_id: Number) {
     const url_api = `${this.url}tutorship/show`;
-
+  console.log('tutorship_id',tutorship_id)
     return this.http
       .get(url_api, { headers: this.headers, params: new HttpParams().set('tutorship_id', tutorship_id.toString()) })
       .pipe(map(data => data));

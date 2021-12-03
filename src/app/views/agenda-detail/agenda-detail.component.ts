@@ -27,7 +27,7 @@ export class AgendaDetailComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       const id: Number = params['id'] || null;
       const teacher: boolean = params['teacher'] || null;
-      console.log(id)
+
       this.tutorship.getTutorshipDetail(id)
         .subscribe(response => {
           let data = JSON.parse(JSON.stringify(response));

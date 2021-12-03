@@ -1,5 +1,5 @@
 <div class="row">
-  <h1 class="text-dark text-center font-weight-bold mb-3">Materias</h1>
+  <h1 class="text-dark text-center font-weight-bold mb-3">Horarios</h1>
   <button routerLink="/schedule-create" class="btn add">Añadir horario</button>
   <select class="form-control" name="day" id="day" [formControl]="dayCtrl">
     <option value="" disabled selected>Seleccione un día</option>
@@ -25,7 +25,7 @@
       <td>{{item.get_campus.name}}</td>
       <td>
         <!-- <button class="btn btn-lg btn-block"> -->
-        <mat-icon>delete</mat-icon>
+        <mat-icon (click)="destrtoySchedule($event, item.id)">delete</mat-icon>
         <!-- </button> -->
       </td>
     </tr>

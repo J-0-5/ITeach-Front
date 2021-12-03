@@ -41,6 +41,18 @@ export class ScheduleListComponent implements OnInit {
       });
   }
 
+  destrtoySchedule(event: Event, id: Number) {
+    event.preventDefault();
+    this.schedule.deleteSchedule(id)
+      .subscribe(response => {
+        let data = JSON.parse(JSON.stringify(response));
+        if (data.status) {
+          this.getList();
+          alert(data.message)
+        }
+      });
+  }
+
   getDays() {
     this.parameter.getParameter('day')
       .subscribe(response => {

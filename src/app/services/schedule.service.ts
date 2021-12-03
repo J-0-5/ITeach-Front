@@ -30,4 +30,11 @@ export class ScheduleService {
       .post(url_api, { teacher_id, day, campus, start_hour, final_hour }, { headers: this.headers })
       .pipe(map(data => data));
   }
+
+  deleteSchedule(id: Number) {
+    const url_api = `${this.url}schedule/${id}`;
+    return this.http
+      .delete(url_api, { headers: this.headers })
+      .pipe(map(data => data));
+  }
 }

@@ -14,7 +14,7 @@ import { StudentHistoryComponent } from './views/student-history/student-history
 import { ProfileComponent } from './views/profile/profile.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/' },
+  { path: '', pathMatch: 'full', redirectTo: '/profile' },
   { path: 'login', component: LoginComponent },
   { path: 'schedule-list', component: ScheduleListComponent },
   { path: 'schedule-create', component: CreateScheduleComponent },
